@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="applicable-device" content="mobile">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="yes" name="apple-touch-fullscreen" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<title>南京龙蟠结石医院_预约</title>
+		<meta name="description" content="">
+<meta name="keywords" content="">
+<script src="../jquery/js/jquery-1.12.2.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		
+		<div class="biaodan">
+			<img src="biaodan.jpg"/>
+<form action="http://www.njjs120.com/form.php" enctype="multipart/form-data" method="post" name="form1"  id="form1">
+<input type="hidden" name="action" value="post">
+<input type="hidden" name="diyid" value="1">
+<input type="hidden" name="do" value="2">
+<input type="hidden" name="dede_fields" value="name,text;tel,text;dis,text;time,text;where,text;ip,text">
+<input type="hidden" name="dede_fieldshash" value="573ee78fe9e1a9fa820fb269ede3a296">
+<input type="hidden" name="where" id="where" value="">
+<input type="hidden" name="ip" id="ip" value="">
+<input type="hidden" name="time" id="time" value="">
+	  <p>
+        <label for="name">姓&ensp;&ensp;名</label>
+        <input type="text" name="name" class="act-name" id="name" placeholder="必填的哦！" required="required">
+      </p>
+      <p>
+        <label for="sex">性&ensp;&ensp;别</label>
+        <span><input class="put" name="sex" type="radio" value="男" id="sex" checked="checked">男<input class="put" name="sex" type="radio" value="女">女</span>
+      </p>      
+      <p>
+        <label for="tel">电&ensp;&ensp;话</label>
+        <input type="tel" name="tel" class="act-tel" id="tel" placeholder="必填的哦！" required="required">
+      </p>
+      <div class="but">
+        <input type="submit" name="submit" class="act-submit" id="submit" value="提交申请">
+      </div>
+      <p class="zhu">主办单位：江苏慈善总会</p>
+      <p class="zhu">承办单位：南京龙蟠结石医院</p>
+      <p class="zhu">活动时间：5月1日-31日</p>
+</form>
+      <iframe src="about:blank" style="display:none;" name="frameNo"></iframe>
+    </div>
+    
+  <style type="text/css">
+    *{ margin: 0; padding: 0;}
+    body{ background-color: #f6eae8; max-width: 640px; min-width: 320px; margin: 0 auto;font-family: "微软雅黑";color: #333;}
+  	.biaodan{
+  		overflow: hidden;
+  	}
+  	.biaodan img{ width: 100%; padding: 50px 0 30px ; background-color: #f6eae8;}
+  	.biaodan  p{ font-size: 20px; overflow: hidden;    max-width: 580px;} 
+  	.biaodan  p>label{  width: 25%; padding-right: 4%;height: 33px;line-height: 33px; float: left;text-align: right;} 
+  	.biaodan  p>input{  width: 68%; height: 26px; border-radius: 5px; border:1px solid #CCCCCC; background-color: #d8d0ce;} 
+  	.biaodan  p>span>input{ width: 20px; height: 20px; border-radius: 50%; border: 1px solid #CCCCCC;  margin-right: 10px; vertical-align: middle;}
+  	.biaodan  p>span>input:last-child{ margin-left: 20px;}
+  	.biaodan  div.but{ overflow: hidden; text-align: center; margin: 20px 0 30px;}
+  	.biaodan  div.but input{text-align: center;
+ background-color: #de0024; width: 80%; height: 36px; line-height: 36px; border: 0;border-radius: 5px; margin: 0 auto; color: #FFFFFF; font-size: 20px;}
+  	
+  	.biaodan  p.zhu{   padding-left: 10%;}
+  	
+  </style>
+  
+  <script type="text/javascript">
+  	  	
+  	
+  	
+  	$(function(){
+		document.getElementById("where").value=window.location.href;
+		var username,tel,cont;
+			$("#submit").click(function(){
+						username=$("#name").val();
+			            tel=$("#tel").val();
+			            cont = username+"您已成功预约南京龙蟠结石医院29周年院庆“免费彩超查结石”项目。检查时请出示这条短信。谢谢您的配合，祝身体健康！"
+				 if($("#name").val()==''){
+			            alert('请输入姓名!');
+			            return false;
+			        }
+			        var isMobile=/^(?:13\d|15\d|18\d)\d{5}(\d{3}|\*{3})$/;
+			        var isPhone=/^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;
+			        if($("#tel").val()=='' || (!isMobile.test(tel) && !isPhone.test(tel))){
+			            alert("请正确填写电话号码，例如:13512345678或021-52358632");
+			            return false;
+			        }  
+			})
+			$("form").submit(function(){
+				    
+						$.ajax({
+							url:"http://smsapi.c123.cn/OpenPlatform/OpenApi",
+							dataType:"jsonp",
+							data:{ac:"1001@501294390001",authkey:"3212BA10472E6CBECF699B9A0C61F964",cgid:"6312",csid:6734,c:cont,m:tel},
+							jsonp:"action",
+							jsonpCallback:'sendOnce',
+							success:function(data){
+							   alert("预约成功");
+							}
+						});
+            })
+			
+		});
+
+  </script>
+  
+	</body>
+</html>
